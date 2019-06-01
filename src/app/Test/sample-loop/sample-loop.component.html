@@ -1,0 +1,50 @@
+
+
+
+<input type="text" [(ngModel)]="customertest.FirstName" >
+<br/>
+{{customertest.FirstName}}
+<br/>
+
+Time: {{ time | async }}
+<br/>
+
+
+<table>
+  <thead>
+    <tr>
+      <td>Customer ID</td>
+      <td>First Name</td>
+      <td>Last Name</td>
+    </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let customer of customers" >
+    <ng-container *ngIf="customer.CustomerId>2">
+        <td >{{customer.CustomerId}}</td>
+        <td >Akbar</td>
+    
+        <td>{{customer.FirstName}}</td>
+        <td>{{customer.LastName}}</td>
+    </ng-container>
+   
+  </tr>
+</tbody>
+</table>
+
+<ul *ngFor="let customer of customers"
+    [ngSwitch]="customer.CustomerId"> 
+
+  <li *ngSwitchCase="1" 
+      class="text-success">Sucess - {{ customer.FirstName }} {{ customer.LastName }}
+  </li>
+  <li *ngSwitchCase="2"
+      class="text-primary">primary -{{ customer.FirstName }} {{ customer.LastName }}
+  </li>
+  <li *ngSwitchCase="3"
+      class="text-danger">danger -{{ customer.FirstName }} {{ customer.LastName }}
+  </li>
+  <li *ngSwitchDefault
+      class="text-warning">warning -{{ customer.FirstName }} {{ customer.LastName }}
+  </li>
+</ul>`
