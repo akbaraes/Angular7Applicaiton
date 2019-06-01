@@ -6,7 +6,7 @@ import { Sampledirective } from './shared/sampledirective';
 import { EmployeeComponent } from './Employees/employee/employee.component';
 import { FormsModule } from '@angular/forms';
 import { SampleLoopComponent } from './Test/sample-loop/sample-loop.component';
-import { LifeHockTestComponent } from './life-hock-test/life-hock-test.component';
+import { OnChangesComponent,OnChangesParentComponent } from './life-hock-test/life-hock-test.component';
 
 
 @NgModule({
@@ -15,7 +15,8 @@ import { LifeHockTestComponent } from './life-hock-test/life-hock-test.component
     Sampledirective,
     EmployeeComponent,
     SampleLoopComponent,
-    LifeHockTestComponent,
+    OnChangesComponent,
+    OnChangesParentComponent
  ],
   imports: [
     BrowserModule,

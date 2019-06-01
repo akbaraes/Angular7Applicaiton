@@ -1,15 +1,74 @@
-import { Component, OnInit } from '@angular/core';
+/* tslint:disable:forin */
+import {
+  Component, Input, OnChanges,
+  SimpleChanges, ViewChild, OnDestroy
+} from '@angular/core';
+
+class Hero {
+  constructor(public name: string) {}
+}
 
 @Component({
-  selector: 'app-life-hock-test',
-  templateUrl: './life-hock-test.component.html',
-  styles: []
+  selector: 'on-changes',
+  template: `
+  <div class="hero">
+    <p>{{hero.name}} can {{power}}</p>
+
+    <h4>-- Change Log --</h4>
+    <div *ngFor="let chg of changeLog">{{chg}}</div>
+  </div>
+  `,
+  styles: [
+    '.hero {background: LightYellow; padding: 8px; margin-top: 8px}',
+    'p {background: Yellow; padding: 8px; margin-top: 8px}'
+  ]
 })
-export class LifeHockTestComponent implements OnInit {
+export class OnChangesComponent implements OnChanges {
+  @Input() hero: Hero;
+  @Input() power: string;
 
-  constructor() { }
+  changeLog: string[] = [];
 
-  ngOnInit() {
+  ngOnChanges(changes: SimpleChanges) {
+    debugger;
+    for (let propName in changes) {
+      let chng = changes[propName];
+      let cur  = JSON.stringify(chng.currentValue);
+      let prev = JSON.stringify(chng.previousValue);
+      this.changeLog.push(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);
+    }
   }
 
+  reset() { this.changeLog = []; }
+}
+
+@Component({
+  selector: 'on-changes-parent',
+  templateUrl: './life-hock-test.component.html',
+  styles: ['.parent {background: Lavender;}']
+})
+export class OnChangesParentComponent implements OnDestroy {
+  
+  hero: Hero;
+  power1: string;
+  title = 'OnChanges';
+  @ViewChild(OnChangesComponent) childView: OnChangesComponent;
+
+  constructor() {
+    this.reset();
+  }
+
+  
+  reset() {
+    // new Hero object every time; triggers onChanges
+    this.hero = new Hero('Windstorm');
+    // setting power only triggers onChanges if this value is different
+    this.power1 = 'sing';
+   if (this.childView) { this.childView.reset(); }
+  }
+
+  ngOnDestroy(): void {
+    debugger;
+    console.log("ngOnDestroy");
+  }
 }
