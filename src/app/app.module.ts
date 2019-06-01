@@ -7,6 +7,11 @@ import { EmployeeComponent } from './Employees/employee/employee.component';
 import { FormsModule } from '@angular/forms';
 import { SampleLoopComponent } from './Test/sample-loop/sample-loop.component';
 import { OnChangesComponent,OnChangesParentComponent } from './life-hock-test/life-hock-test.component';
+import { ComponenttestComponent} from './componenttest/componenttest.component';
+import { InterpolitiontestComponent } from './interpolitiontest/interpolitiontest.component';
+import { ProperbindingtestComponent } from './properbindingtest/properbindingtest.component';
+import { ClassbindingtestComponent } from './classbindingtest/classbindingtest.component';
+import { EventbindingtestComponent } from './eventbindingtest/eventbindingtest.component';
 
 
 @NgModule({
@@ -16,7 +21,13 @@ import { OnChangesComponent,OnChangesParentComponent } from './life-hock-test/li
     EmployeeComponent,
     SampleLoopComponent,
     OnChangesComponent,
-    OnChangesParentComponent
+    OnChangesParentComponent,
+    ComponenttestComponent,
+    InterpolitiontestComponent,
+    ProperbindingtestComponent,
+    ClassbindingtestComponent,
+    EventbindingtestComponent,
+    
  ],
   imports: [
     BrowserModule,
