@@ -1,0 +1,6 @@
+Child controller input is <input type="text" [(ngModel)]="name"/>
+
+Data from child component is {{message}}
+
+<app-child-component (childEvent)="ReadData($event)" [parentData]="name"></app-child-component>
+

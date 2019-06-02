@@ -12,6 +12,16 @@ import { InterpolitiontestComponent } from './interpolitiontest/interpolitiontes
 import { ProperbindingtestComponent } from './properbindingtest/properbindingtest.component';
 import { ClassbindingtestComponent } from './classbindingtest/classbindingtest.component';
 import { EventbindingtestComponent } from './eventbindingtest/eventbindingtest.component';
+import { TemplatereRerenceComponent } from './templatere-rerence/templatere-rerence.component';
+import { TwowayBindingComponent } from './twoway-binding/twoway-binding.component';
+import { IfDirectiveComponent } from './if-directive/if-directive.component';
+import { SwitchDirectiveComponent } from './switch-directive/switch-directive.component';
+import { ForDirectiveComponent } from './for-directive/for-directive.component';
+import { ParentComponentComponent } from './ComponentInteration/parent-component/parent-component.component';
+import { ChildComponentComponent } from './ComponentInteration/child-component/child-component.component';
+import { PipeComponent } from './pipe/pipe.component';
+import { PlayerComponent } from './service/player/player.component';
+import { PlayerService } from './service/player.service';
 
 
 @NgModule({
@@ -27,6 +37,15 @@ import { EventbindingtestComponent } from './eventbindingtest/eventbindingtest.c
     ProperbindingtestComponent,
     ClassbindingtestComponent,
     EventbindingtestComponent,
+    TemplatereRerenceComponent,
+    TwowayBindingComponent,
+    IfDirectiveComponent,
+    SwitchDirectiveComponent,
+    ForDirectiveComponent,
+    ParentComponentComponent,
+    ChildComponentComponent,
+    PipeComponent,
+    PlayerComponent,
     
  ],
   imports: [
@@ -34,7 +53,7 @@ import { EventbindingtestComponent } from './eventbindingtest/eventbindingtest.c
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [PlayerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
